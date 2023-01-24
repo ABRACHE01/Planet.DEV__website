@@ -8,6 +8,7 @@ class ArticleController
 
         return $article;
     }
+
     public function getAdminArticle()
     {
         $article = Article::getAdminArt($_SESSION['id']);
@@ -68,6 +69,7 @@ class ArticleController
         }
       
     }
+
     public function  findArticle(){
 
         if(isset($_POST['search'])){
@@ -76,6 +78,7 @@ class ArticleController
         $articles= Article::searchArticle($data);
         return   $articles;
     }
+    
     public function  updateArticle()
     {
         if (isset($_POST['submit'])) {
