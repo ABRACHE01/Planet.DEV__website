@@ -10,7 +10,6 @@ if (isset($_POST['find'])) {
 }
 include('views/includes/navbar.php');
 ?>
-
 <div class="wrapper">
 
     <div class="title">
@@ -20,7 +19,6 @@ include('views/includes/navbar.php');
         <form action="?" method="POST" class="row domain-search bg-pblue pt-5 ">
             <div class="container">
                 <div class="row ">
-
                     <div class="text-center">
                         <h2 class="form-title text-secondary h1 ">Find what you're <strong> Curious</strong> about</h2>
                         <h4 class="text-white pt-1">Search articles by category or title</h4>
@@ -58,14 +56,14 @@ include('views/includes/navbar.php');
             <div class="cardarticle first mt-5 ">
                 <div class="mb-4">
                     <h1 class="text-center mb-4">⭐ <?php echo  $Article['title']; ?> ⭐</h1>
-                    <img src="views\assets\images\pexels-ivan-samkov-7213210.jpg" width="100%">
+                    <img src="uploaded_images\<?php echo  $Article['image']; ?> " width="100%">
                 </div>
                 <div>
                     <p><strong>category : </strong> <?php echo  $Article['name']; ?></p>
                     <p><strong>Admin : </strong> <?php echo  $Article['fullname']; ?></p>
                     <p class="date"><strong>Date : </strong><?php echo  $Article['date_created']; ?></p>
                     <strong>Article</strong>
-                    <p class="text">" <?php echo  $Article['content']; ?> "</p>
+                    <p class="text">"<?php echo  $Article['content']; ?> "</p>
                     <p><strong>Autor : </strong> <?php echo  $Article['author']; ?></p>
                 </div>
             </div>

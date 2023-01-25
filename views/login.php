@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
           <div class="col-md-7">
             <div class="card-body">
               <div class="brand-wrapper">
-                <img src="views/assets/images/logo.svg" alt="logo" class="logo">
+              <h1> Planet.DEv </h1>
+
               </div>
               <p class="login-card-description">Sign into your account</p>
               <form action="?" method="post" data-parsley-validate="parsley">

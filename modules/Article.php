@@ -10,6 +10,7 @@ class Article
           return $stmt->fetchAll();
           $stmt = null;
      }
+     
      static public function getAdminArt($currentAdmin)
      {
           $stmt = DB::connect()->prepare("SELECT a.*, c.name,d.fullname FROM article a JOIN category c ON a.category_id = c.category_id JOIN user d ON a.user_id = d.id WHERE a.user_id = '$currentAdmin' ;");
@@ -39,18 +40,14 @@ class Article
 
      static public function add($data)
      {
-
-          $stmt = DB::connect()->prepare('INSERT into `article`(  `title`, `author`, `content`, `category_id`, `date_created`, `user_id`) values( :title, :author, :content, :category,:date_created ,:user_id ) ');
+          $stmt = DB::connect()->prepare('INSERT into `article`(  `title`, `author`, `content`, `category_id`, `date_created`, `user_id`,`image`) values( :title, :author, :content, :category,:date_created ,:user_id,:image ) ');
           $stmt->bindParam(':title', $data['title']);
           $stmt->bindParam(':author', $data['author']);
           $stmt->bindParam(':content', $data['content']);
           $stmt->bindParam(':category', $data['category']);
           $stmt->bindParam(':date_created', $data['date_created']);
           $stmt->bindParam(':user_id', $data['user_id']);
-
-
-
-
+          $stmt->bindParam(':image', $data['image']);
           if ($stmt->execute()) {
                return 'ok';
           } else {
@@ -67,7 +64,6 @@ class Article
           try {
 
                $query = "  DELETE FROM `article` WHERE article_id=:id";
-               $stmt = DB::connect()->prepare($query);
                $stmt = DB::connect()->prepare($query);
                $stmt->execute(array(":id" => $id));
 
@@ -120,12 +116,7 @@ class Article
 
      static public function rowCount($user)
      {
-
-
-
           $stmt = DB::connect()->prepare("SELECT * FROM `$user`");
-
-
           $stmt->execute();
           $res = $stmt->rowCount();
           return $res;

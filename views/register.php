@@ -26,8 +26,8 @@ if (isset($_POST['submit'])) {
           </div>
           <div class="col-md-7">
             <div class="card-body">
-              <div class="brand-wrapper">
-                <img src="views/assets/images/logo.svg" alt="logo" class="logo">
+              <div class="brand-wrapper ">
+                <h1> Planet.DEv </h1>
               </div>
               <p class="login-card-description"> Welcome to be a DEV familly mumber  </p>
               <form action="?" method="post" data-parsley-validate>
@@ -42,8 +42,7 @@ if (isset($_POST['submit'])) {
                   </div>
                   <div class="form-group">
             <label for="password">password</label>
-            <input type="password" name="password" placeholder="password" class="form-control"  data-parsley-pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" 
-  data-parsley-pattern-message="Must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character">
+            <input type="password" name="password" placeholder="password" class="form-control"  >
         </div>
                   <!-- <input name="login" id="login" class="btn btn-block login-btn mb-4" type="button" value="Login"> -->
                   <button class="btn btn-block login-btn mb-4" name="submit" type="submit">sign up</button>

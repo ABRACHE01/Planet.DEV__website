@@ -52,15 +52,15 @@ display: block;
 		<div class="part2 text-center text-secondary " >
 
 			<section  class="carts container-fluid  justify-content-center   ">
-				<h3 class><span class="h1">👤</span> Admins:<span><?php echo  Article::rowCount('user'); ?></h3>
+				<h3 class><span class="h1"><?php echo  Article::rowCount('user'); ?></span> Admins<span>👤</h3>
 			</section>
 
 			<section class="carts container-fluid  justify-content-center ">
-				<h3></span><span class="h1">📰</span> All Articles:<span><?php echo  Article::rowCount('article'); ?></h3>
+				<h3></span><span class="h1"><?php echo  Article::rowCount('article'); ?></span> All Articles<span>📰</h3>
 			</section>
 
 			<section class="carts container-fluid  justify-content-center ">
-				<h3></span><span class="h1">📊</span> Categiries:<span><?php echo  Article::rowCount('category'); ?></h3>
+				<h3></span><span class="h1"><?php echo  Article::rowCount('category'); ?> </span> Categiries<span>📊</h3>
 			</section>
 
 		</div>
@@ -95,13 +95,13 @@ display: block;
                     <thead>
 
 							<tr>
-								<th scope="col" class="h5 text-center">title</th>
-								<th scope="col" class="h5 text-center">content</th>
-								<th scope="col" class="h5 text-center">authore</th>
-								<th scope="col" class="h5 text-center">categorie</th>
-								<th scope="col" class="h5 text-center">date</th>
-								<th scope="col" class="h5 text-center">admins</th>
-								<th scope="col" class="h5 text-center">action</th>
+								<th scope="col" class="h5 ">title</th>
+								<th scope="col" class="h5 ">content</th>
+								<th scope="col" class="h5 ">authore</th>
+								<th scope="col" class="h5 ">categorie</th>
+								<th scope="col" class="h5 ">date</th>
+								<th scope="col" class="h5 ">admins</th>
+								<th scope="col" class="h5 ">action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -110,11 +110,12 @@ display: block;
 
 								<tr>
 									<td><?php echo  $Article['title']; ?></td>
-									<td><?php echo  $Article['content']; ?></td>
+									<td class="text"><?php echo  $Article['content']; ?></td>
 									<td><?php echo  $Article['author']; ?></td>
 									<td><?php echo  $Article['name']; ?></td>
 									<td><?php echo  $Article['date_created']; ?></td>
 									<td><?php echo  $Article['fullname']; ?></td>
+									
 
 									<td class="d-flex ">
 										<form action="update" method="post" >
@@ -122,8 +123,9 @@ display: block;
 											<button class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></button>
 										</form>
 										<form action="delete" method="post" >
-											<input type="hidden" name="delete_id" value="<?php echo $Article['article_id']; ?>">
-											<button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+										<input type="hidden" name="image" value="<?php echo  $Article['image']; ?>">
+										<input type="hidden" name="delete_id" value="<?php echo $Article['article_id']; ?>">
+										<button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
 										</form>
 									</td>
 								</tr>
@@ -140,5 +142,18 @@ display: block;
 <footer><div class="text-center p-5"> MADE with 💖 by <span class="text-secondary" > Mohamed ABRACHE </span></div></footer>
 
 
+<script>
+function truncateText(selector, maxLength) {
+    var element = document.querySelector(selector),
+        truncated = element.innerText;
+
+    if (truncated.length > maxLength) {
+        truncated = truncated.substr(0,maxLength) + '...';
+    }
+    return truncated;
+}
+
+document.querySelector('.text').innerText = truncateText('.text', 100);
+</script>
     
 

@@ -6,6 +6,11 @@ if (isset($_POST['ok'])) {
 }
 
 ?>
+<style>
+.image-upload>input {
+  display: none;
+}
+</style>
 
 <div class="container  ">
     <div class="row my-4 ">
@@ -20,18 +25,18 @@ if (isset($_POST['ok'])) {
                     <i class="fa fa-home"></i>
                 </a>
 
-                <form method="post" action="?" id="original-form" data-parsley-validate>
+                <form method="post" action="?" id="original-form" enctype="multipart/form-data" data-parsley-validate>
 
                     <section id="section">
                         <div id="forms" class="card bg-white m-2 p-3">
-                            <a type="button float-right" class="btn-close" aria-label="Close" onclick="remove();"></a>
+                            <a type="button float-right" id="cross" class="btn-close" aria-label="Close" onclick="remove();"></a>
                             <div class="form-group mt-3">
                                 <label for="Fullname"> title</label>
                                 <input type="text" name="title[]" class="form-control" placeholder="title" required data-parsley-trigger="keyup">
                             </div>
                             <div class="form-group mt-3">
                                 <label for="matrucule"> content</label>
-                                <textarea type="text" name="content[]" class="form-control" placeholder="content"required data-parsley-trigger="keyup" ></textarea>
+                                <textarea type="text" name="content[]" class="form-control" placeholder="content" required data-parsley-trigger="keyup"></textarea>
                             </div>
                             <div class="form-group mt-3">
                                 <label for="departement">author </label>
@@ -54,7 +59,14 @@ if (isset($_POST['ok'])) {
                             <div class="form-group mt-3">
                                 <input type="hidden" name="admin[]" class="form-control" value="<?= $_SESSION['id']; ?>">
                             </div>
+                            <div class=" image-upload">
+                            <label for="file-input">
+                                <img src="https://icons.iconarchive.com/icons/dtafalonso/android-lollipop/128/Downloads-icon.png" width="50px" height="50px"/>
+                            </label>
+                            <input id="file-input" type="file" name="image[]" />
                         </div>
+                        </div>
+                     
                     </section>
 
                     <button type="submit" name="ok" class="btn btn-primary mt-3">Valider</button>

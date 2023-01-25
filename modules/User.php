@@ -6,12 +6,10 @@ class User{
           
           $stmt = DB::connect()->prepare('SELECT * FROM user ');
           
-          return  $stmt->rowCount();
-          
-       
-         
-          
+          return  $stmt->rowCount();    
      }
+
+
     static public function createUser($data){
      
         $stmt = DB::connect()->prepare('INSERT into `user`( `fullname`, `email`,`password`) values( :fullname, :email,:password) ');
